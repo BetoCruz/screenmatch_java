@@ -1,8 +1,8 @@
 package br.com.alura.screenmatch.modelos;
 
-import org.w3c.dom.ls.LSOutput;
 
-public class Titulo {
+
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
@@ -11,7 +11,7 @@ public class Titulo {
     private int duracaoEmMinutos;
 
 
-    //construtor inicializa obrigatoriamente com os valore de nome e anoDeLançamento
+    //constructor inicializa obrigatoriamente com os valores de nome e anoDeLançamento
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
@@ -72,6 +72,11 @@ public class Titulo {
     //_____Sobrescrição do Metodo da Classe Objeto
     @Override
     public String toString() {
-        return "Filme"+getNome()+" ("+getAnoDeLancamento()+")";
+        return "Filme: "+getNome()+" ("+getAnoDeLancamento()+")";
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome()) ;
     }
 }
